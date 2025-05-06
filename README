@@ -1,0 +1,80 @@
+# ✧ canvas to notion sync ✧
+
+a chrome extension that syncs your canvas tasks to a notion database ⋆˚₊
+
+## ✦ about
+
+this extension creates a bridge between your canvas assignments/tasks and notion. it automatically syncs your tasks to a custom notion database and refreshes it weekly so you can keep track of everything without the stress. super simple, super easy.
+
+## ✧ features
+
+- ⋆ daily automatic syncing (runs in the background)
+- ⋆ manual sync whenever you want
+- ⋆ creates a new weekly database every sunday
+- ⋆ archives completed and past-due tasks
+- ⋆ organizes tasks by day of the week
+
+## ✦ how to install
+
+1. clone this repo
+   ```
+   git clone https://github.com/yourusername/canvas-to-notion-sync.git
+   ```
+2. open chrome and go to `chrome://extensions`
+3. turn on developer mode (toggle in the top right)
+4. click "load unpacked" and select this folder
+5. the extension will appear in your toolbar ✧
+
+## ✧ setup guide
+
+✩ remember to save after adding every credential ✩
+
+you'll need to get some special tokens to make the extension work:
+
+### notion setup
+1. create a notion integration at [notion.so/my-integrations](https://www.notion.so/my-integrations)
+2. copy your integration token and paste into the secret token box (save)
+3. create or choose a notion page where you want your tasks
+4. share that page with your integration!!!
+5. copy the page id from the url and paste into the url box (save)
+
+### canvas setup
+1. go to your canvas account settings
+2. create a new access token
+3. copy the token and paste it into the canvas token box (save)
+4. copy your canvas url and paste that into it's box (save)
+
+### extension setup
+1. click the extension icon in your toolbar
+2. check that all your tokens and ids match with the instructions (?) in right hand corner
+3. click "sync now" to test it out ✧
+
+## ✦ using dummy data
+
+if you just want to test things out, you can check "use dummy data" in the settings. 
+
+## ✧ customization
+
+feel free to modify the css to match your aesthetic. all the sparkles are in `popup.css`. you can remove them if they are distracting
+in the future i'm hoping to add more customization options!
+
+## ✦ troubleshooting
+
+if something isn't working right:
+- make sure all your tokens are correct
+- check that you've shared your notion page with your integration
+- try resetting and entering your settings again
+
+## ✧ security & privacy
+
+✦ all your tokens and credentials are stored locally in your chrome browser
+✦ sensitive data (like tokens) is encrypted before being saved to storage
+✦ no data is ever sent to external servers (only to notion and canvas apis)
+✦ your information never leaves your computer except to sync your tasks
+✦ i never see or have access to any of your personal data
+
+## ✧ about me
+
+made with ♥ by [gonehunttin](https://github.com/gonehunttin)
+
+★ ☆ ✦ ✧ ✩ ★ ☆ ✦ ✧ ✩ ★ ☆ ✦ ✧ ✩

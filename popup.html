@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>canvas to notion sync</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- bouncing stars shit -->
+    <div class="bouncing-star" style="top: 10%; left: 5%; animation: bounce 8s infinite ease-in-out; --x-amount: 40px; --y-amount: 30px;">★</div>
+    <div class="bouncing-star" style="top: 30%; left: 80%; animation: bounce 9s infinite ease-in-out; --x-amount: -30px; --y-amount: 20px;">✧</div>
+    <div class="bouncing-star" style="top: 50%; left: 20%; animation: bounce 12s infinite ease-in-out; --x-amount: 50px; --y-amount: -40px;">☆</div>
+    <div class="bouncing-star" style="top: 70%; left: 60%; animation: bounce 10s infinite ease-in-out; --x-amount: -20px; --y-amount: -25px;">✦</div>
+    <div class="bouncing-star" style="top: 90%; left: 40%; animation: bounce 11s infinite ease-in-out; --x-amount: 35px; --y-amount: -15px;">✩</div>
+    
+    <!-- help button -->
+    <button class="help-side-trigger" id="helpButton">?</button>
+    
+    <div class="starry-header">
+      <h1>canvas to notion sync</h1>
+      <span class="header-flourish">★ ☆ ✦ ✧</span>
+    </div>
+    
+    <div class="settings-section">
+      <h2>notion settings</h2>
+      <div class="input-group">
+        <label for="notionToken">notion integration token</label>
+        <input type="password" id="notionToken" placeholder="secret_...">
+      </div>
+      <div class="input-group">
+        <label for="notionPageId">notion page ID</label>
+        <input type="text" id="notionPageId" placeholder="page-id-here...">
+      </div>
+    </div>
+    
+    <div class="settings-section">
+      <h2>canvas settings</h2>
+      <div class="input-group">
+        <label for="canvasToken">canvas API token</label>
+        <input type="password" id="canvasToken" placeholder="api-token-here...">
+      </div>
+      <div class="input-group">
+        <label for="canvasUrl">canvas base URL</label>
+        <input type="text" id="canvasUrl" placeholder="https://yourschool.instructure.com">
+      </div>
+    </div>
+    
+    <div class="settings-section">
+      <h2>other settings</h2>
+      <div class="checkbox-group">
+        <input type="checkbox" id="useDummyData">
+        <label for="useDummyData">use the dummy data</label>
+      </div>
+    </div>
+    
+    <div class="status-message" id="statusMessage"></div>
+    <div id="loadingSpinner">꩜</div>
+    
+    <div class="action-buttons">
+      <button id="resetButton">reset</button>
+      <button id="saveBtn">save settings</button>
+      <button id="syncNowBtn">sync now</button>
+    </div>
+    
+    <div class="last-sync">
+      <p>last sync time: <span id="lastSyncTime">never</span></p>
+    </div>
+    
+    <div class="disclaimer">
+      this extension is not affiliated with Canvas or Notion.
+      all trademarks belong to their respective owners.
+    </div>
+    
+    <div class="footer">
+      version 1.0.0 • made with ♥ by gonehunttin
+    </div>
+  </div>
+  
+  <!-- help sliding panel bc i like things overly complicated for no reason -->
+  <div class="help-panel" id="helpPanel">
+    <span class="close-panel" id="closePanel">×</span>
+    <h2>how to get your credentials</h2>
+      
+    <div class="how-to-section">
+      <h3>notion integration token</h3>
+      <ol>
+        <li>go to <a href="https://www.notion.so/my-integrations" target="_blank">notion integrations</a></li>
+        <li>click "new integration"</li>
+        <li>name your integration (eg, "canvas sync")</li>
+        <li>select the workspace to install it to</li>
+        <li>if you want the logos to match, a "512.png" is avalible in the <a href="https://github.com/gonehunttin" target="_blank">github</a> icons folder for this project. you can upload whatever you'd like tho. it doesn't impact functionality :p</li>
+        <li>click "save" and copy the "internal integration secret" then paste it in the provided box</li>
+      </ol>
+    </div>
+      
+    <div class="how-to-section">
+      <h3>notion page ID</h3>
+      <ol>
+        <li>open your notion page in a browser</li>
+        <li>look at the URL: notion.so/workspace/<b>page-id-here</b></li>
+        <li>copy the page ID part (typically 32 characters), paste it in respective box, and save </li>
+        <li>share your page with your integration by clicking "share" and adding your integration</li>
+      </ol>
+    </div>
+      
+    <div class="how-to-section">
+      <h3>canvas API token</h3>
+      <ol>
+        <li>log into your canvas account</li>
+        <li>go to account → settings</li>
+        <li>scroll to "approved integrations"</li>
+        <li>click "New Access Token"</li>
+        <li>give it a purpose (eg, "canvas sync") and click "Generate Token"</li>
+        <li>copy the token, paste it and save (you won't be able to see it again!)</li>
+      </ol>
+    </div>
+      
+    <div class="how-to-section">
+      <h3>canvas base URL</h3>
+      <p>this is simply the main URL for your Canvas instance, for example:</p>
+      <ul>
+        <li>https://yourschool.instructure.com</li>
+        <li>https://canvas.university.edu</li>
+      </ul>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
