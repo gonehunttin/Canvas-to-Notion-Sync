@@ -17,9 +17,6 @@ this extension creates a bridge between your canvas assignments/tasks and notion
 ## ✦ how to install
 
 1. clone this repo
-   ```
-   git clone https://github.com/yourusername/canvas-to-notion-sync.git
-   ```
 2. open chrome and go to `chrome://extensions`
 3. turn on developer mode (toggle in the top right)
 4. click "load unpacked" and select this folder
